@@ -6,6 +6,7 @@ public class ArraySequence implements IntegerSequence{
   //constructor
   /*Construct the sequence by copying values from the other array into the data array*/
   public ArraySequence(int[] other) {
+    data = new int[other.length];
     for (int i = 0; i < other.length; i++) {
       data[i] = other[i];
     }
@@ -22,10 +23,15 @@ public class ArraySequence implements IntegerSequence{
   }
 
   public boolean hasNext() {
-    return false;
+    return (currentIndex <= (data.length - 1));
   }
 
   public int next() {
-    return 0;
+    if (hasNext()) {
+      currentIndex++;
+      return (data[currentIndex - 1]);
+    } else {
+      throw new NoSuchElementException("Element does not exist.");
+    }
   }
 }

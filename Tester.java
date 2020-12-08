@@ -8,5 +8,14 @@ public class Tester {
       }
     }
     System.out.println();
+
+    int[]nums = {17, 13, 3, 1};
+    IntegerSequence as = new ArraySequence(nums);
+    System.out.println(as.length());
+
+    System.out.println("ArraySequence(array):");
+    while (as.hasNext()) {
+      System.out.print(as.next() + ", ");
+    }
   }
 }
