@@ -3,8 +3,7 @@ public class ArraySequence implements IntegerSequence{
   //private variables
   private int currentIndex;
   private int []data;
-  //constructor
-  /*Construct the sequence by copying values from the other array into the data array*/
+  //constructors
   public ArraySequence(int[] other) {
     data = new int[other.length];
     for (int i = 0; i < other.length; i++) {
@@ -13,6 +12,13 @@ public class ArraySequence implements IntegerSequence{
     currentIndex = 0;
   }
 
+  public ArraySequence(IntegerSequence otherseq) {
+    data = new int[otherseq.length()];
+    for (int i = 0; i < otherseq.length(); i++) {
+      data[i] = otherseq.next();
+    }
+    otherseq.reset();
+  }
   //methods
   public void reset() {
     currentIndex = 0;
