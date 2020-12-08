@@ -3,10 +3,14 @@ public class Range implements IntegerSequence{
   //private variables
   private int start, end, current;
   //constructor
-  public Range(int start, int end){
-    this.start = start;
-    this.end = end;
-    current = start;
+  public Range(int start, int end) {
+    if (start <= end) {
+      this.start = start;
+      this.end = end;
+      current = start;
+    } else {
+      throw new IllegalArgumentException("Start must be smaller than end.");
+    }
   }
   //methods
   public void reset() {
